@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 // 🗣️ What it does:
 // This line is importing the Express module.
@@ -12,7 +13,7 @@ const app = express();
 // This line creates an Express application — your own mini web server.
 
 // 💡 Think of app as your restaurant 🏪. Express gives you a building (express()) and now app is the manager that handles customer (user) orders.
-const port = process.env.PORT||5000;
+const port = process.env.PORT || 5000;
 // 🗣️ What it does:
 // Defines the port number where your server will listen for requests.
 
@@ -68,7 +69,7 @@ app.get("/teas", (req, res) => {
   res.status(200).send(teaData);
 });
 // read data by id
-app.get("/teas/:id", ( req,res) => {
+app.get("/teas/:id", (req, res) => {
   let tea = teaData.find((tea) => tea.id === parseInt(req.params.id));
   if (!tea) {
     return res.status(404).send("tea not found");
@@ -76,7 +77,7 @@ app.get("/teas/:id", ( req,res) => {
   res.status(200).send(tea);
 });
 // updata data
-app.put("/teas/:id", ( req,res) => {
+app.put("/teas/:id", (req, res) => {
   let tea = teaData.find((tea) => tea.id === parseInt(req.params.id));
   if (!tea) {
     return res.status(404).send("tea not found");
@@ -89,7 +90,7 @@ app.put("/teas/:id", ( req,res) => {
 
 // app delete
 
-app.delete("/teas/:id", (req,res) => {
+app.delete("/teas/:id", (req, res) => {
   let ind = teaData.find((tea) => tea.id === parseInt(req.params.id));
   if (ind === -1) {
     return res.status(404).send("tea not found");
