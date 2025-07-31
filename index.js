@@ -48,6 +48,7 @@ const port = process.env.PORT || 5000;
 
 // 📢 res.send("what type of tea you like");
 // → Sends the message "what type of tea you like" to the user’s browser.
+
 app.use(express.json());
 let teaData = [];
 let nextid = 1;
@@ -97,6 +98,10 @@ app.delete("/teas/:id", (req, res) => {
   }
   teaData.splice(ind, 1);
   res.status(200).send("deleted");
+});
+
+app.get("/", (req, res) => {
+  res.send("Server is live and working!");
 });
 
 app.listen(port, () => {
