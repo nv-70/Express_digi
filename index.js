@@ -12,7 +12,7 @@ const app = express();
 // This line creates an Express application — your own mini web server.
 
 // 💡 Think of app as your restaurant 🏪. Express gives you a building (express()) and now app is the manager that handles customer (user) orders.
-const port = 5000;
+const port = process.env.PORT||5000;
 // 🗣️ What it does:
 // Defines the port number where your server will listen for requests.
 
