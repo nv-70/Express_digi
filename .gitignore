@@ -1,3 +1,2 @@
-node_module/
-PORT
+node_modules/
 .env
